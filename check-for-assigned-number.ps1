@@ -17,14 +17,14 @@ $userCreds = Get-Credential
 $teamsSession = Connect-MicrosoftTeams -Credential $userCreds
 
 # The phone number to search for:
-$numberToFind = "*40460088*"
+$numberToFind = "<Number to find>"
 # False until proven otherwise
 $found = $false
 
 # Check for number in users
 try {
     write-host "*** Searching for number: $numberToFind *** `n"
-    $found = Get-CsOnlineUser | Where-Object { $_.LineURI -like $numberToFind } | select-object UserPrincipalName, LineURI
+    $found = Get-CsOnlineUser | Where-Object { $_.LineURI -like "*$numberToFind*" } | select-object UserPrincipalName, LineURI
 }
 catch {
     write-verbose -Message $_.exception.message
