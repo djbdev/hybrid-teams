@@ -17,7 +17,7 @@ $userCreds = Get-Credential
 $teamsSession = Connect-MicrosoftTeams -Credential $userCreds
 
 # Specify the user account to which a number has been assigned
-$user= "narelle.newton"
+$user= "Identity"
 
 # Clear the assigned number from the user
 Set-CsUser -identity $user -onpremlineuri $null
