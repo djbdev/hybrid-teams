@@ -7,18 +7,19 @@
         Simple script for a hybrid o365 environment, designed to
         take a newly created user and enrol and migrate to Teams
         online.
+        Remove the < > and fill with relevant field details.
 
     author: djb-admin
 #>
 
 # Configuration variables
-$userName = "shonia.o'brien@bdo.com.au"
+$userName = "<Users UPN here>"
 
-$lineURI = "tel:+61740460088"
+$lineURI = "tel:<Phone number here>"
 
-$voicePolicy = "AU-INTERNATIONAL"
+$voicePolicy = "<Teams Voice Policy here>"
     
-$dialPlan = "AU-Queensland-07"
+$dialPlan = "<Teams dial plan here>"
 function Enable-TeamsUser($username,$LineURI,$VoicePolicy){
 
     try {
@@ -34,7 +35,7 @@ function Enable-TeamsUser($username,$LineURI,$VoicePolicy){
         Grant-CsTeamsUpgradePolicy -Identity $username -PolicyName UpgradeToTeams    
     } catch {
         # What happened?
-        Get-Error $_
+        Write-Host "$_"
         Return
     } 
 }
