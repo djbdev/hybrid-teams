@@ -1,18 +1,21 @@
 <#
-    if required:
+    If required:
         #Install-Module MicrosoftTeams -Force
         #Import-Module MicrosoftTeams
-    author: djb-admin
+        
+    Remove < > and fill with relevant details.
+    Author: djb-admin
 #>
 
-#session as daniel.bailey@bdo.com.au
+# Create session
 $userCreds = Get-Credential
 Connect-MicrosoftTeams -Credential $userCreds
+
 # User to change
-$user = "Myles.Frlan@bdo.com.au"
+$user = "<Users UPN here>"
 
 # Number to set
-$number = "tel:+61740460069"
+$number = "tel:+<Phone number here>"
 
 # Set phone number on prem
 Set-CsUser -Identity $user -OnPremLineURI $number
